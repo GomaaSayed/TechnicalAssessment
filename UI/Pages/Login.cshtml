@@ -1,0 +1,58 @@
+﻿@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+<<div class="container mt-5">
+    <h2>
+        Login  </h2>
+   
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" value="admin" id="username" name="username" required />
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" value="Admin@1234" name="password" required />
+        </div>
+        <br />
+        <button type="button" class="btn btn-primary" onclick="login()">Login</button>
+    </form>
+    <div id="errorMessage" class="text-danger mt-3"></div>
+</div>
+
+<script>
+  
+    function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        
+        fetch('https://localhost:7214/api/Authentication/Login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username: username, password: password })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.token) {
+               
+                    localStorage.setItem('authToken', data.token);
+
+                  
+                    window.location.href = "/AddInvoice";
+                } else {
+           
+                    document.getElementById('errorMessage').innerText = 'Invalid login attempt.';
+                }
+            })
+            .catch(error => {
+                document.getElementById('errorMessage').innerText = 'An error occurred during login.';
+            });
+    }
+</script>
