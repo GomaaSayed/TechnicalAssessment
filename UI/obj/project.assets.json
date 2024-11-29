@@ -857,11 +857,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\TechnicalAssessment\\UI\\UI.csproj",
+      "projectUniqueName": "C:\\Users\\GomaaSayed\\Source\\Repos\\TechnicalAssessment\\UI\\UI.csproj",
       "projectName": "UI",
-      "projectPath": "D:\\Projects\\TechnicalAssessment\\UI\\UI.csproj",
+      "projectPath": "C:\\Users\\GomaaSayed\\Source\\Repos\\TechnicalAssessment\\UI\\UI.csproj",
       "packagesPath": "C:\\Users\\GomaaSayed\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\TechnicalAssessment\\UI\\obj\\",
+      "outputPath": "C:\\Users\\GomaaSayed\\Source\\Repos\\TechnicalAssessment\\UI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -883,8 +883,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Projects\\TechnicalAssessment\\Contract\\Contract.csproj": {
-              "projectPath": "D:\\Projects\\TechnicalAssessment\\Contract\\Contract.csproj"
+            "C:\\Users\\GomaaSayed\\Source\\Repos\\TechnicalAssessment\\Contract\\Contract.csproj": {
+              "projectPath": "C:\\Users\\GomaaSayed\\Source\\Repos\\TechnicalAssessment\\Contract\\Contract.csproj"
             }
           }
         }

@@ -4560,11 +4560,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\TechnicalAssessment\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\GomaaSayed\\Source\\Repos\\TechnicalAssessment\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "D:\\Projects\\TechnicalAssessment\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\Users\\GomaaSayed\\Source\\Repos\\TechnicalAssessment\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\GomaaSayed\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\TechnicalAssessment\\Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\GomaaSayed\\Source\\Repos\\TechnicalAssessment\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4586,11 +4586,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Projects\\TechnicalAssessment\\Contract\\Contract.csproj": {
-              "projectPath": "D:\\Projects\\TechnicalAssessment\\Contract\\Contract.csproj"
+            "C:\\Users\\GomaaSayed\\Source\\Repos\\TechnicalAssessment\\Contract\\Contract.csproj": {
+              "projectPath": "C:\\Users\\GomaaSayed\\Source\\Repos\\TechnicalAssessment\\Contract\\Contract.csproj"
             },
-            "D:\\Projects\\TechnicalAssessment\\Core\\Core.csproj": {
-              "projectPath": "D:\\Projects\\TechnicalAssessment\\Core\\Core.csproj"
+            "C:\\Users\\GomaaSayed\\Source\\Repos\\TechnicalAssessment\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\GomaaSayed\\Source\\Repos\\TechnicalAssessment\\Core\\Core.csproj"
             }
           }
         }
