@@ -12,8 +12,8 @@ using TechnicalAssessment.Infrastructure.Contexts;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(TechnicalAssessmentDbContext))]
-    [Migration("20241218063012_removeVisibleColumn")]
-    partial class removeVisibleColumn
+    [Migration("20241218165816_createTables")]
+    partial class createTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -191,34 +191,34 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e4487971-cf5c-41c2-b01b-de40afbacd22"),
-                            CreatedOn = new DateTime(2024, 12, 18, 8, 30, 11, 459, DateTimeKind.Local).AddTicks(2909),
+                            Id = new Guid("25b2668b-55a0-4dbe-be11-690c38363c9e"),
+                            CreatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5318),
                             Description = "Devices and gadgets",
-                            LastUpdatedOn = new DateTime(2024, 12, 18, 8, 30, 11, 459, DateTimeKind.Local).AddTicks(2813),
+                            LastUpdatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5210),
                             Name = "Electronics"
                         },
                         new
                         {
-                            Id = new Guid("e582b208-c40c-482b-bb67-c4ac914116ec"),
-                            CreatedOn = new DateTime(2024, 12, 18, 8, 30, 11, 459, DateTimeKind.Local).AddTicks(2921),
+                            Id = new Guid("4d21e4f4-1089-48a9-ae2c-f685cd72cc9e"),
+                            CreatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5328),
                             Description = "Apparel and accessories",
-                            LastUpdatedOn = new DateTime(2024, 12, 18, 8, 30, 11, 459, DateTimeKind.Local).AddTicks(2916),
+                            LastUpdatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5325),
                             Name = "Clothing"
                         },
                         new
                         {
-                            Id = new Guid("e7ba128b-9c1f-4ca6-89e6-152fe2fe7ebd"),
-                            CreatedOn = new DateTime(2024, 12, 18, 8, 30, 11, 459, DateTimeKind.Local).AddTicks(2930),
+                            Id = new Guid("20f24ee6-7add-4e9c-ab1e-e9ae9fdea18b"),
+                            CreatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5336),
                             Description = "Fiction and non-fiction books",
-                            LastUpdatedOn = new DateTime(2024, 12, 18, 8, 30, 11, 459, DateTimeKind.Local).AddTicks(2926),
+                            LastUpdatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5332),
                             Name = "Books"
                         },
                         new
                         {
-                            Id = new Guid("5f38db14-2a8c-4201-893c-2c8dd84848df"),
-                            CreatedOn = new DateTime(2024, 12, 18, 8, 30, 11, 459, DateTimeKind.Local).AddTicks(2937),
+                            Id = new Guid("75388302-b037-4a9c-825b-2c9daaf0cbc0"),
+                            CreatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5343),
                             Description = "Sports equipment and accessories",
-                            LastUpdatedOn = new DateTime(2024, 12, 18, 8, 30, 11, 459, DateTimeKind.Local).AddTicks(2934),
+                            LastUpdatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5340),
                             Name = "Sports"
                         });
                 });
@@ -329,6 +329,9 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsVisible")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("LastUpdatedOn")
                         .HasColumnType("datetime2");
 
@@ -419,7 +422,7 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "179feea1-16ce-4e33-a083-ccd820b0e90c",
+                            Id = "622f48f6-64ba-4b7c-974a-faa314f7549e",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "admin_concurrency_stamp",
                             Email = "admin@example.com",
@@ -427,7 +430,7 @@ namespace Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAELCFXapaY8p9ICX0k0VSJOnM5u80N3F6hXNlUFnAc3VSWI5CpwaiS3EZxPIUVMn6bw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMlP7pHn6pQgds+VKi4WOBBSpSXMFfxP4IPATYTE88R5MrWr92HHkIMmJ8pJ51vcoQ==",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "admin_security_stamp",
                             TwoFactorEnabled = false,
@@ -435,7 +438,7 @@ namespace Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "cbbb1b0b-069f-4754-be1a-c6abb71c5116",
+                            Id = "a75a2daf-3995-4673-b95c-c5c99c99f015",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "user_concurrency_stamp",
                             Email = "user@example.com",
@@ -443,7 +446,7 @@ namespace Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@EXAMPLE.COM",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMd9zQjyoOWZzuYVRwEQ1bG0abrai7X2BUtf9SQNf6v1fEccFDDrafwqSRSSOab70Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAPUh5dnnkr7NizHIaXFFYy2cjhq2kDvNKa1zyBBp2pJk1QNFXP1HqbjanEHJNLIWg==",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "user_security_stamp",
                             TwoFactorEnabled = false,

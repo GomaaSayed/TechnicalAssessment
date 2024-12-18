@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateTables : Migration
+    public partial class createTables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -28,41 +28,6 @@ namespace Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Category", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Invoice",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    InvoiceNo = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    InvoiceDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreateBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastUpdatedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Invoice", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Item",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    AvailableQuantity = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Item", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -133,28 +98,6 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "InvoiceDetails",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ItemId = table.Column<int>(type: "int", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    InvoiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_InvoiceDetails", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_InvoiceDetails_Invoice_InvoiceId",
-                        column: x => x.InvoiceId,
-                        principalTable: "Invoice",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "RoleClaims",
                 columns: table => new
                 {
@@ -184,7 +127,7 @@ namespace Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     CreateBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -323,10 +266,10 @@ namespace Infrastructure.Migrations
                 columns: new[] { "Id", "CreateBy", "CreatedOn", "Description", "LastUpdatedOn", "Name", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { new Guid("648b96d9-0b3f-4fd4-baa0-91073c60e45e"), null, new DateTime(2024, 12, 17, 13, 28, 42, 643, DateTimeKind.Local).AddTicks(6928), "Sports equipment and accessories", new DateTime(2024, 12, 17, 13, 28, 42, 643, DateTimeKind.Local).AddTicks(6922), "Sports", null },
-                    { new Guid("a95ab7a5-25f3-43db-8a19-fd073f378819"), null, new DateTime(2024, 12, 17, 13, 28, 42, 643, DateTimeKind.Local).AddTicks(6911), "Fiction and non-fiction books", new DateTime(2024, 12, 17, 13, 28, 42, 643, DateTimeKind.Local).AddTicks(6899), "Books", null },
-                    { new Guid("c0471043-2bf1-4f3e-90e4-c5297470f386"), null, new DateTime(2024, 12, 17, 13, 28, 42, 643, DateTimeKind.Local).AddTicks(6870), "Devices and gadgets", new DateTime(2024, 12, 17, 13, 28, 42, 643, DateTimeKind.Local).AddTicks(6822), "Electronics", null },
-                    { new Guid("ec3de45b-9fcb-4a55-98c4-102a8c9e1740"), null, new DateTime(2024, 12, 17, 13, 28, 42, 643, DateTimeKind.Local).AddTicks(6885), "Apparel and accessories", new DateTime(2024, 12, 17, 13, 28, 42, 643, DateTimeKind.Local).AddTicks(6879), "Clothing", null }
+                    { new Guid("20f24ee6-7add-4e9c-ab1e-e9ae9fdea18b"), null, new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5336), "Fiction and non-fiction books", new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5332), "Books", null },
+                    { new Guid("25b2668b-55a0-4dbe-be11-690c38363c9e"), null, new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5318), "Devices and gadgets", new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5210), "Electronics", null },
+                    { new Guid("4d21e4f4-1089-48a9-ae2c-f685cd72cc9e"), null, new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5328), "Apparel and accessories", new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5325), "Clothing", null },
+                    { new Guid("75388302-b037-4a9c-825b-2c9daaf0cbc0"), null, new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5343), "Sports equipment and accessories", new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5340), "Sports", null }
                 });
 
             migrationBuilder.InsertData(
@@ -334,14 +277,9 @@ namespace Infrastructure.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "415bf191-caa8-4c07-be9b-e63fecb999e3", 0, "admin_concurrency_stamp", "admin@example.com", true, false, null, "ADMIN@EXAMPLE.COM", "ADMIN", "AQAAAAIAAYagAAAAEKFXJcghBoFh/GD3iY4PpluCFRafHfBItQMFVMJakiMq4q85ls/4HbNnRfLv8Srjig==", null, true, "admin_security_stamp", false, "admin" },
-                    { "48d03fcb-685c-44c2-81c4-701ae8affd95", 0, "user_concurrency_stamp", "user@example.com", true, false, null, "USER@EXAMPLE.COM", "USER", "AQAAAAIAAYagAAAAEN/axge7CfhZuu3QUvPP8KYWiaRiGAtUDgk7uy2fwgE5eg/G5xnmUfDe/I4jyhZVjQ==", null, true, "user_security_stamp", false, "user" }
+                    { "622f48f6-64ba-4b7c-974a-faa314f7549e", 0, "admin_concurrency_stamp", "admin@example.com", true, false, null, "ADMIN@EXAMPLE.COM", "ADMIN", "AQAAAAIAAYagAAAAEMlP7pHn6pQgds+VKi4WOBBSpSXMFfxP4IPATYTE88R5MrWr92HHkIMmJ8pJ51vcoQ==", null, true, "admin_security_stamp", false, "admin" },
+                    { "a75a2daf-3995-4673-b95c-c5c99c99f015", 0, "user_concurrency_stamp", "user@example.com", true, false, null, "USER@EXAMPLE.COM", "USER", "AQAAAAIAAYagAAAAEAPUh5dnnkr7NizHIaXFFYy2cjhq2kDvNKa1zyBBp2pJk1QNFXP1HqbjanEHJNLIWg==", null, true, "user_security_stamp", false, "user" }
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_InvoiceDetails_InvoiceId",
-                table: "InvoiceDetails",
-                column: "InvoiceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Order_UserId",
@@ -407,12 +345,6 @@ namespace Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "InvoiceDetails");
-
-            migrationBuilder.DropTable(
-                name: "Item");
-
-            migrationBuilder.DropTable(
                 name: "OrderItem");
 
             migrationBuilder.DropTable(
@@ -429,9 +361,6 @@ namespace Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "UserTokens");
-
-            migrationBuilder.DropTable(
-                name: "Invoice");
 
             migrationBuilder.DropTable(
                 name: "Order");

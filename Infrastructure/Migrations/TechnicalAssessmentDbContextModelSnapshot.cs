@@ -188,34 +188,34 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("cec5ac19-e107-4595-b0c7-4ed3d32baff4"),
-                            CreatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6953),
+                            Id = new Guid("25b2668b-55a0-4dbe-be11-690c38363c9e"),
+                            CreatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5318),
                             Description = "Devices and gadgets",
-                            LastUpdatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6916),
+                            LastUpdatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5210),
                             Name = "Electronics"
                         },
                         new
                         {
-                            Id = new Guid("2a93257a-a3d7-4f51-91f6-238d194feccd"),
-                            CreatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6959),
+                            Id = new Guid("4d21e4f4-1089-48a9-ae2c-f685cd72cc9e"),
+                            CreatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5328),
                             Description = "Apparel and accessories",
-                            LastUpdatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6957),
+                            LastUpdatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5325),
                             Name = "Clothing"
                         },
                         new
                         {
-                            Id = new Guid("be2aee6f-9c81-4112-ac65-e3d4287d7107"),
-                            CreatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6964),
+                            Id = new Guid("20f24ee6-7add-4e9c-ab1e-e9ae9fdea18b"),
+                            CreatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5336),
                             Description = "Fiction and non-fiction books",
-                            LastUpdatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6961),
+                            LastUpdatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5332),
                             Name = "Books"
                         },
                         new
                         {
-                            Id = new Guid("2c8340f7-5e62-4bb8-aab7-3806210af77a"),
-                            CreatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6968),
+                            Id = new Guid("75388302-b037-4a9c-825b-2c9daaf0cbc0"),
+                            CreatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5343),
                             Description = "Sports equipment and accessories",
-                            LastUpdatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6966),
+                            LastUpdatedOn = new DateTime(2024, 12, 18, 18, 58, 15, 986, DateTimeKind.Local).AddTicks(5340),
                             Name = "Sports"
                         });
                 });
@@ -419,7 +419,7 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7c3dfd63-3231-4788-8d15-8b622f2d1139",
+                            Id = "622f48f6-64ba-4b7c-974a-faa314f7549e",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "admin_concurrency_stamp",
                             Email = "admin@example.com",
@@ -427,7 +427,7 @@ namespace Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBI7IFSfNrCb8Mxt6/bGZDAhpTKALeHEN1K7CIjnfzySmlo7tO/FtTcxLdd3tf5Ejg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMlP7pHn6pQgds+VKi4WOBBSpSXMFfxP4IPATYTE88R5MrWr92HHkIMmJ8pJ51vcoQ==",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "admin_security_stamp",
                             TwoFactorEnabled = false,
@@ -435,7 +435,7 @@ namespace Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "1f1e2f93-35a6-4396-8ba3-7b7b5072439a",
+                            Id = "a75a2daf-3995-4673-b95c-c5c99c99f015",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "user_concurrency_stamp",
                             Email = "user@example.com",
@@ -443,7 +443,7 @@ namespace Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@EXAMPLE.COM",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEA4LdUURJXWF/vWve2Wpa0cThaDEPnLofYYnmf/Iq2hi1Q+A4Ztr6DW2OtprClKG3g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAPUh5dnnkr7NizHIaXFFYy2cjhq2kDvNKa1zyBBp2pJk1QNFXP1HqbjanEHJNLIWg==",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "user_security_stamp",
                             TwoFactorEnabled = false,
