@@ -13,5 +13,6 @@ namespace TechnicalAssessment.Core.Entities
     {
         [NotMapped]
         public string Password { get; set; }
+        public ICollection<Order> orders { get; set; }
     }
 }

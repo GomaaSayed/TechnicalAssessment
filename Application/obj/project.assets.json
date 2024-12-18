@@ -1211,11 +1211,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\TechnicalAssessment\\Application\\Application.csproj",
+      "projectUniqueName": "D:\\TechnicalAssessment\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "D:\\Projects\\TechnicalAssessment\\Application\\Application.csproj",
+      "projectPath": "D:\\TechnicalAssessment\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\GomaaSayed\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\TechnicalAssessment\\Application\\obj\\",
+      "outputPath": "D:\\TechnicalAssessment\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1237,11 +1237,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Projects\\TechnicalAssessment\\Contract\\Contract.csproj": {
-              "projectPath": "D:\\Projects\\TechnicalAssessment\\Contract\\Contract.csproj"
+            "D:\\TechnicalAssessment\\Contract\\Contract.csproj": {
+              "projectPath": "D:\\TechnicalAssessment\\Contract\\Contract.csproj"
             },
-            "D:\\Projects\\TechnicalAssessment\\Core\\Core.csproj": {
-              "projectPath": "D:\\Projects\\TechnicalAssessment\\Core\\Core.csproj"
+            "D:\\TechnicalAssessment\\Core\\Core.csproj": {
+              "projectPath": "D:\\TechnicalAssessment\\Core\\Core.csproj"
             }
           }
         }

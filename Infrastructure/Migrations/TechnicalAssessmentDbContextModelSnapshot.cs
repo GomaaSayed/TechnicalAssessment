@@ -155,73 +155,182 @@ namespace Infrastructure.Migrations
                     b.ToTable("UserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("TechnicalAssessment.Core.Entities.Invoice", b =>
+            modelBuilder.Entity("TechnicalAssessment.Core.Entities.Category", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("CreateBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("InvoiceDate")
+                    b.Property<DateTime>("LastUpdatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("InvoiceNo")
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Category");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("cec5ac19-e107-4595-b0c7-4ed3d32baff4"),
+                            CreatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6953),
+                            Description = "Devices and gadgets",
+                            LastUpdatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6916),
+                            Name = "Electronics"
+                        },
+                        new
+                        {
+                            Id = new Guid("2a93257a-a3d7-4f51-91f6-238d194feccd"),
+                            CreatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6959),
+                            Description = "Apparel and accessories",
+                            LastUpdatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6957),
+                            Name = "Clothing"
+                        },
+                        new
+                        {
+                            Id = new Guid("be2aee6f-9c81-4112-ac65-e3d4287d7107"),
+                            CreatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6964),
+                            Description = "Fiction and non-fiction books",
+                            LastUpdatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6961),
+                            Name = "Books"
+                        },
+                        new
+                        {
+                            Id = new Guid("2c8340f7-5e62-4bb8-aab7-3806210af77a"),
+                            CreatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6968),
+                            Description = "Sports equipment and accessories",
+                            LastUpdatedOn = new DateTime(2024, 12, 18, 10, 16, 0, 178, DateTimeKind.Local).AddTicks(6966),
+                            Name = "Sports"
+                        });
+                });
+
+            modelBuilder.Entity("TechnicalAssessment.Core.Entities.Order", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreateBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("LastUpdatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("OrderNumber")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InvoiceNo"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderNumber"));
 
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Invoice");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Order");
                 });
 
-            modelBuilder.Entity("TechnicalAssessment.Core.Entities.InvoiceDetails", b =>
+            modelBuilder.Entity("TechnicalAssessment.Core.Entities.OrderItem", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("InvoiceId")
+                    b.Property<string>("CreateBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("LastUpdatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("ItemId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Total")
+                    b.Property<decimal>("TotalPrice")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("InvoiceId");
+                    b.HasIndex("OrderId");
 
-                    b.ToTable("InvoiceDetails");
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderItem");
                 });
 
-            modelBuilder.Entity("TechnicalAssessment.Core.Entities.Item", b =>
+            modelBuilder.Entity("TechnicalAssessment.Core.Entities.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("AvailableQuantity")
-                        .HasColumnType("int");
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreateBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsVisible")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdatedOn")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -230,9 +339,17 @@ namespace Infrastructure.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Item");
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("TechnicalAssessment.Core.Entities.User", b =>
@@ -302,7 +419,7 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5a395faf-d39b-461f-9237-00eb1669320a",
+                            Id = "7c3dfd63-3231-4788-8d15-8b622f2d1139",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "admin_concurrency_stamp",
                             Email = "admin@example.com",
@@ -310,7 +427,7 @@ namespace Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAECvjxMsDvAmOrHYG8/ddJJ5p57OVItCLXlZiPH0wfvlajAZeigeQDaR0L/PaGJZ7Dg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBI7IFSfNrCb8Mxt6/bGZDAhpTKALeHEN1K7CIjnfzySmlo7tO/FtTcxLdd3tf5Ejg==",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "admin_security_stamp",
                             TwoFactorEnabled = false,
@@ -318,7 +435,7 @@ namespace Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = "1244e10a-e746-489e-ae96-11b9997e1ca5",
+                            Id = "1f1e2f93-35a6-4396-8ba3-7b7b5072439a",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "user_concurrency_stamp",
                             Email = "user@example.com",
@@ -326,7 +443,7 @@ namespace Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@EXAMPLE.COM",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGXioVvCVohGS0tTyXDWeWyuKYqKYgeBXrbw9qeIzKd3ZeHMC4A8P4evH9sBMcZVWA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEA4LdUURJXWF/vWve2Wpa0cThaDEPnLofYYnmf/Iq2hi1Q+A4Ztr6DW2OtprClKG3g==",
                             PhoneNumberConfirmed = true,
                             SecurityStamp = "user_security_stamp",
                             TwoFactorEnabled = false,
@@ -385,20 +502,65 @@ namespace Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TechnicalAssessment.Core.Entities.InvoiceDetails", b =>
+            modelBuilder.Entity("TechnicalAssessment.Core.Entities.Order", b =>
                 {
-                    b.HasOne("TechnicalAssessment.Core.Entities.Invoice", "Invoice")
-                        .WithMany("Items")
-                        .HasForeignKey("InvoiceId")
+                    b.HasOne("TechnicalAssessment.Core.Entities.User", "User")
+                        .WithMany("orders")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Invoice");
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("TechnicalAssessment.Core.Entities.Invoice", b =>
+            modelBuilder.Entity("TechnicalAssessment.Core.Entities.OrderItem", b =>
                 {
-                    b.Navigation("Items");
+                    b.HasOne("TechnicalAssessment.Core.Entities.Order", "Order")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TechnicalAssessment.Core.Entities.Product", "Product")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("TechnicalAssessment.Core.Entities.Product", b =>
+                {
+                    b.HasOne("TechnicalAssessment.Core.Entities.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("TechnicalAssessment.Core.Entities.Category", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("TechnicalAssessment.Core.Entities.Order", b =>
+                {
+                    b.Navigation("OrderItems");
+                });
+
+            modelBuilder.Entity("TechnicalAssessment.Core.Entities.Product", b =>
+                {
+                    b.Navigation("OrderItems");
+                });
+
+            modelBuilder.Entity("TechnicalAssessment.Core.Entities.User", b =>
+                {
+                    b.Navigation("orders");
                 });
 #pragma warning restore 612, 618
         }

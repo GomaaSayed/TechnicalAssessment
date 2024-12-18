@@ -4859,11 +4859,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\TechnicalAssessment\\API\\API.csproj",
+      "projectUniqueName": "D:\\TechnicalAssessment\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "D:\\Projects\\TechnicalAssessment\\API\\API.csproj",
+      "projectPath": "D:\\TechnicalAssessment\\API\\API.csproj",
       "packagesPath": "C:\\Users\\GomaaSayed\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\TechnicalAssessment\\API\\obj\\",
+      "outputPath": "D:\\TechnicalAssessment\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4885,17 +4885,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Projects\\TechnicalAssessment\\Application\\Application.csproj": {
-              "projectPath": "D:\\Projects\\TechnicalAssessment\\Application\\Application.csproj"
+            "D:\\TechnicalAssessment\\Application\\Application.csproj": {
+              "projectPath": "D:\\TechnicalAssessment\\Application\\Application.csproj"
             },
-            "D:\\Projects\\TechnicalAssessment\\Contract\\Contract.csproj": {
-              "projectPath": "D:\\Projects\\TechnicalAssessment\\Contract\\Contract.csproj"
+            "D:\\TechnicalAssessment\\Contract\\Contract.csproj": {
+              "projectPath": "D:\\TechnicalAssessment\\Contract\\Contract.csproj"
             },
-            "D:\\Projects\\TechnicalAssessment\\Core\\Core.csproj": {
-              "projectPath": "D:\\Projects\\TechnicalAssessment\\Core\\Core.csproj"
+            "D:\\TechnicalAssessment\\Core\\Core.csproj": {
+              "projectPath": "D:\\TechnicalAssessment\\Core\\Core.csproj"
             },
-            "D:\\Projects\\TechnicalAssessment\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "D:\\Projects\\TechnicalAssessment\\Infrastructure\\Infrastructure.csproj"
+            "D:\\TechnicalAssessment\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "D:\\TechnicalAssessment\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }

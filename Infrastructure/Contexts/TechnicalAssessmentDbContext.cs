@@ -7,10 +7,10 @@ namespace TechnicalAssessment.Infrastructure.Contexts
 {
     public class TechnicalAssessmentDbContext : IdentityDbContext<User>
     {
-        public DbSet<Invoice> Invoice { get; set; }
-        public DbSet<InvoiceDetails> InvoiceDetails { get; set; }
-
-        public DbSet<Item> Item { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderItem> OrderItem { get; set; }
+        public DbSet<Category> Category { get; set; }
         public TechnicalAssessmentDbContext(DbContextOptions<TechnicalAssessmentDbContext> options) : base(options)
         {
         }
@@ -18,11 +18,13 @@ namespace TechnicalAssessment.Infrastructure.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<Invoice>()
-            .Property(i => i.InvoiceNo)
-            .ValueGeneratedOnAdd();
+        
+            modelBuilder.Entity<Order>()
+          .Property(i => i.OrderNumber)
+          .ValueGeneratedOnAdd();
             base.OnModelCreating(modelBuilder);
-          
+
+
             modelBuilder.Entity<User>(b => { b.ToTable("Users"); });
             modelBuilder.Entity<IdentityRole>(b => { b.ToTable("Roles"); });
             modelBuilder.Entity<IdentityUserRole<string>>(b => { b.ToTable("UserRoles"); });
@@ -31,7 +33,13 @@ namespace TechnicalAssessment.Infrastructure.Contexts
             modelBuilder.Entity<IdentityRoleClaim<string>>(b => { b.ToTable("RoleClaims"); });
             modelBuilder.Entity<IdentityUserToken<string>>(b => { b.ToTable("UserTokens"); });
             var hasher = new PasswordHasher<User>();
-
+            // بيانات افتراضية للتصنيفات
+            modelBuilder.Entity<Category>().HasData(
+                new Category { Id = Guid.NewGuid(), Name = "Electronics", Description = "Devices and gadgets", CreatedOn = DateTime.Now },
+                new Category { Id = Guid.NewGuid(), Name = "Clothing", Description = "Apparel and accessories", CreatedOn = DateTime.Now },
+                new Category { Id = Guid.NewGuid(), Name = "Books", Description = "Fiction and non-fiction books", CreatedOn = DateTime.Now },
+                new Category { Id = Guid.NewGuid(), Name = "Sports", Description = "Sports equipment and accessories", CreatedOn = DateTime.Now }
+            );
             modelBuilder.Entity<User>().HasData(
                 new User
                 {
